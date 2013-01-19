@@ -1,0 +1,23 @@
+# Maintainer: Axilleas Pipinellis <axilleas@archlinux.gr>
+
+pkgname=python2-snf-common
+_pkgname=snf-common
+pkgver=0.12.0
+pkgrel=1
+pkgdesc="Provides a base layer of all synnefo related software."
+url="http://docs.dev.grnet.gr/pypi/"
+arch=('any')
+license=('custom')
+depends=('python2')
+makedepends=('python2-distribute')
+provides=('snf-common')
+source=("https://docs.dev.grnet.gr/pypi/$_pkgname-$pkgver.tar.gz" "LICENSE")
+
+package() {
+
+  cd "$srcdir/$_pkgname-$pkgver"
+  python2 setup.py install --root="$pkgdir" -O1
+  cd "$srcdir"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+md5sums=('21cd0ae936833d00abb42d7cfee3776b' '8e62bb951fd3fd15e253a74c1d45ddaf')

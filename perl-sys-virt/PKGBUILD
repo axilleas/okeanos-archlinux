@@ -1,0 +1,40 @@
+# Maintainer: Xiao-Long Chen <chenxiaolong@cxl.epac.to>
+
+_author="Daniel P. Berrange"
+_perlmod="sys-virt"
+pkgname=perl-${_perlmod}
+pkgver=0.9.12
+pkgrel=1
+pkgdesc="Represent and manage a libvirt hypervisor connection"
+arch=('any')
+url="http://search.cpan.org/dist/Sys-Virt/"
+license=('GPL' 'PerlArtistic')
+depends=('perl>=5.10.0')
+makedepends=('perl-test-pod-coverage' 'perl-xml-xpath' 'libvirt')
+options=(!emptydirs)
+source=("http://www.cpan.org/authors/id/D/DA/DANBERR/Sys-Virt-${pkgver}.tar.gz")
+sha512sums=('9c510ee90677c9a6324998641311e0391fe15b04d83562d23bea45652492f5d75921175c61d922f81e18615e02bfa69679f9ac4fc26da5d19b39289a5a8984a9')
+
+build() {
+  cd "${srcdir}/Sys-Virt-${pkgver}"
+
+  # From Fedora spec file - generation of spec file causes make to segfault
+  sed -i -e '/Sys-Virt\.spec/d' Makefile.PL
+  sed -i -e '/\.spec\.PL$/d' MANIFEST
+  rm -f *.spec.PL
+
+  # Install module in vendor directories.
+  PERL_MM_USE_DEFAULT=1 perl Makefile.PL INSTALLDIRS=vendor
+  MAKEFLAGS='-j1'
+  make
+}
+
+package() {
+  cd "${srcdir}/Sys-Virt-${pkgver}"
+  make install DESTDIR="${pkgdir}/"
+
+  # From Fedora RPM spec file - remove empty '.packlist' and '*.bs' files
+  find "${pkgdir}" -type f \( -name .packlist -o -name '*.bs' -empty \) | xargs rm -vf
+}
+
+# vim:set ts=2 sw=2 et:
