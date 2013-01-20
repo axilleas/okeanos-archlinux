@@ -1,10 +1,10 @@
 # Maintainer: Axilleas Pipinellis <axilleas@archlinux.info>
 
-_pkgname=snf-image-creator
-pkgname=snf_image_creator
+_pkgname=snf_image_creator
+pkgname=snf-image-creator
 pkgver=0.2.1
 pkgrel=1
-pkgdesc="Tool that creates system images to be used with synnefo"
+pkgdesc="A tool that creates system images to be used with synnefo"
 url="http://docs.dev.grnet.gr/snf-image-creator/latest/"
 arch=('any')
 license=('custom')
