@@ -1,0 +1,27 @@
+# Contributor: Lukas Linhart <bugs@almad.net>
+# Contributor: Changaco <changaco ατ changaco δοτ net>
+# Contributor: Nicolas Pouillard <nicolas.pouillard@gmail.com>
+
+_pkgname=argparse
+pkgname=python2-$_pkgname
+pkgver=1.2.1
+pkgrel=1
+pkgdesc="Command line parsing library for python"
+arch=('any')
+url='http://code.google.com/p/argparse/'
+conflicts=('argparse')
+license=('APACHE')
+depends=('python2')
+makedepends=('python2-distribute')
+source=("http://argparse.googlecode.com/files/$_pkgname-$pkgver.tar.gz")
+md5sums=('2fbef8cb61e506c706957ab6e135840c')
+
+# While python 2.7 has a builtin argparse module,
+# packages built with setuptools still need this one.
+
+build() {
+
+  cd "$srcdir/$_pkname-$pkgver"
+  python2 setup.py install --root="$pkgdir" -O1
+
+}
