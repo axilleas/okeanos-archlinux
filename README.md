@@ -1,105 +1,28 @@
-# Archlinux pkgbuilds for the [Okeanos Infrastructure] (https://okeanos.grnet.gr/welcome/).
-
-**Currently only `kamaki` tool is included.**
+# Archlinux pkgbuilds for the [Okeanos IaaS] (https://okeanos.grnet.gr/welcome/).
 
 ##Installation
-Precompiled binaries can be found at http://animal.foss.ntua.gr/~axil/archlinux/okeanos. 
+Precompiled binaries for x86\_64 can be found at http://animal.foss.ntua.gr/~axil/archlinux/okeanos/repo. 
 Just add to your `/etc/pacman.conf` the following:
 
     [okeanos]
-    Server = http://animal.foss.ntua.gr/~axil/archlinux/okeanos
+    Server = http://animal.foss.ntua.gr/~axil/archlinux/okeanos/repo
 	
-and install `kamaki` with:
+and install `kamaki` or `snf-image-creator` with:
 
-    # pacman -Syu python2-kamaki-git
+    # pacman -Syu kamaki snf-image-creator
+
+There are also packages in the AUR:
+
+- [snf-image-creator](https://aur.archlinux.org/packages/snf-image-creator/)
+- [kamaki](https://aur.archlinux.org/packages/kamaki)
 
 
-##./kamaki
-By invoking `kamaki` you get a list of allowable operations. 
+## snf-image-creator
 
-    usage: kamaki <group> <command>
+See http://docs.dev.grnet.gr/snf-image-creator/latest/index.html for more
+information.
 
-```	
-
-  config       Configuration commands
-	|		
-	|--	list			List configuration options
-	|--	get				Show a configuration option
-	|--	set				Set a configuration option
-	`--	delete 			Delete a configuration option (and use the default value)
-	|
-	|
-  server       Compute API server commands
-	|
-	|--	list			List servers
-	|--	info			Get server details
-	|--	create			Create a server
-	|--	rename			Update a server's name
-	|--	delete			Delete a server
-	|--	reboot			Reboot a server
-	|--	start			Start a server
-	|--	shutdown		Shutdown a server
-	|--	console			Get a VNC console
-	|--	firewall		Set the server's firewall profile
-	|--	addr			List a server's addresses
-	|--	meta			Get a server's metadata
-	|--	addmeta			Add server metadata
-	|--	setmeta			Update server's metadata
-	|--	delmeta			Delete server metadata
-	`--	stats			Get server statistics
-	|
-	|
-  flavor       Compute API flavor commands
-	|
-	|--	list			List flavors
-	`--	info			Get flavor details
-	|
-	|
-  image        Compute or Glance API image commands
-	|
-	|--	list			List images
-	|--	info			Get image details
-	|--	delete			Delete image
-	|--	properties		Get image properties
-	|--	addproperty		Add an image property
-	|--	setproperty		Update an image property
-	|--	delproperty		Delete an image property
-	|--	public			List public images
-	|--	meta			Get image metadata
-	|--	register		Register an image
-	|--	members			Get image members
-	|--	shared			List shared images
-	|--	addmember		Add a member to an image
-	|--	delmember		Remove a member from an image
-	`--	setmembers		Set the members of an image
-	|
-	|
-  network      Compute API network commands (Cyclades extension)
-	|
-	|--	list			List networks
-	|--	create			Create a network
-	|--	info			Get network details
-	|--	rename			Update network name
-	|--	delete			Delete a network
-	|--	connect			Connect a server to a network
-	`--	disconnect		Disconnect a server from a network
-	|
-	|
-  store        Storage API commands
-	|
-	|--	create			Create a container
-	|--	container		Get container info
-	|--	list			List objects
-	|--	upload			Upload a file
-	|--	download		Download a file
-	|--	delete			Delete a file
-	`--	purge			Purge a container
-	|
-	|
-  astakos      Astakos API commands
-	|
-	`--	authenticate		Authenticate a user
-```
+## ./kamaki
 
 ###kamakirc
 If you own an account at okeanos, remeber to copy `kamakirc` to `$HOME/.kamakirc` and place your API key to global configuration.

@@ -1,0 +1,26 @@
+# Maintainer: Stéphane Gaudreault <stephane@archlinux.org>
+# Contributor: kfgz <kfgz at interia pl>
+# Contributor: Gökmen Görgen <gkmngrgn at gmail dot com>
+# Contributor: Baurzhan Muftakhidinov <baurthefirst (at) gmail (dot) com>
+
+pkgname=pyparted
+pkgver=3.8
+pkgrel=2
+pkgdesc="Python module for GNU parted"
+url="https://fedorahosted.org/pyparted"
+arch=('i686' 'x86_64')
+license=('GPL2')
+depends=('python2' 'parted>=3.0')
+conflicts=('pyparted-git')
+source=(https://fedorahosted.org/releases/p/y/${pkgname}/${pkgname}-${pkgver}.tar.gz)
+md5sums=('e9cd0c94c71ac17755f71a8e1561eac2')
+
+build() {
+  cd "${srcdir}"/${pkgname}-${pkgver}
+  python2 setup.py build
+}
+
+package() {
+  cd "${srcdir}"/${pkgname}-${pkgver}
+  python2 setup.py install --prefix=/usr --root="${pkgdir}" --optimize=1 --skip-build
+}

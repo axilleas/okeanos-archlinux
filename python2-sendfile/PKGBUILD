@@ -3,11 +3,11 @@
 pkgname=python2-sendfile
 _pkgname=pysendfile
 pkgver=2.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A Python interface to sendfile(2)"
 url="http://code.google.com/p/pysendfile/"
 license=('MIT')
-arch=('any')
+arch=('i686' 'x86_64')
 depends=('python2')
 makedepends=('python2-distribute')
 source=("http://pysendfile.googlecode.com/files/$_pkgname-$pkgver.tar.gz")
