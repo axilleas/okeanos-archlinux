@@ -6,9 +6,9 @@ pkgrel=1
 pkgdesc="A command-line tool for managing clouds"
 arch=(any)
 url="http://code.grnet.gr/projects/kamaki"
-license=('custom')
+license=('BSD')
 depends=('python2-objpool' 'python2-argparse')
-makedepends=('git' 'python2-distribute')
+makedepends=('python2-distribute')
 optdepends=('python2-ansicolors: for color support' 'python2-progress>=1.0.2: for progress bar support')
 source=("https://code.grnet.gr/attachments/download/2143/$pkgname-$pkgver.tar.gz")
 
