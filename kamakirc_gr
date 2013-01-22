@@ -1,0 +1,44 @@
+# Kamaki configuration file for okeanos.grnet.gr
+# Replace your e-mail and your token where asked
+[global]
+colors = on
+token = your_token_here
+
+[compute]
+url = https://cyclades.okeanos.grnet.gr/api/v1.1
+
+[network]
+cli = cyclades_cli
+
+[image]
+url = https://cyclades.okeanos.grnet.gr/plankton
+cli = image_cli
+
+[astakos]
+url = https://accounts.okeanos.grnet.gr
+cli = astakos_cli
+
+[flavor]
+cli = cyclades_cli
+
+[config]
+cli = config_cli
+description = Configuration commands
+
+[server]
+cli = cyclades_cli
+
+[store]
+url = https://pithos.okeanos.grnet.gr/v1
+cli = pithos_cli
+account = your_email_here
+
+[history]
+cli = history_cli
+file = $HOME/.kamaki.history
+
+[storage]
+url = https://cyclades.okeanos.grnet.gr/v1
+cli = pithos_cli
+account = your_email_here
+
