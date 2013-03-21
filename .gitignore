@@ -2,4 +2,4 @@ repository/
 src/
 pkg/
 *tar*
-*log
+*.log
