@@ -1,17 +1,9 @@
 # Archlinux pkgbuilds for the [Okeanos IaaS] (https://okeanos.grnet.gr/welcome/).
 
 ##Installation
-Precompiled binaries for x86\_64 can be found at http://animal.foss.ntua.gr/~axil/archlinux/okeanos/repo. 
-Just add to your `/etc/pacman.conf` the following:
 
-    [okeanos]
-    Server = http://animal.foss.ntua.gr/~axil/archlinux/okeanos/repo
-	
-and install `kamaki` or `snf-image-creator` with:
-
-    # pacman -Syu kamaki snf-image-creator
-
-There are also packages in the AUR:
+Use your favourite pacman wrapper to download and/or install `kamaki`
+and `snf-image-creator` from AUR.
 
 - [snf-image-creator](https://aur.archlinux.org/packages/snf-image-creator/)
 - [kamaki](https://aur.archlinux.org/packages/kamaki)
@@ -25,7 +17,8 @@ information.
 ## ./kamaki
 
 ###kamakirc
-If you own an account at okeanos, remeber to copy `kamakirc` to `$HOME/.kamakirc` and place your API key to global configuration.
+If you own an account at okeanos, remeber to copy `kamakirc` to `$HOME/.kamakirc`
+and place your API key to global configuration.
 
 ###Example
 #### Rebooting a server
