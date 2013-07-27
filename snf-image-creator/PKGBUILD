@@ -2,7 +2,7 @@
 
 _pkgname=snf_image_creator
 pkgname=snf-image-creator
-pkgver=0.4.1
+pkgver=0.4.3
 pkgrel=1
 pkgdesc="A tool that creates system images to be used with synnefo"
 url="http://docs.dev.grnet.gr/snf-image-creator/latest/"
@@ -31,4 +31,5 @@ package() {
   cp -r _build/html/ "$pkgdir/usr/share/docs/$pkgname/html"
 
 }
-md5sums=('45fde410a2eea0172d0e542ec78e882e')
+
+md5sums=('89e2aa7a2e1683a4c47f665941f04a1d')

@@ -1,18 +1,17 @@
 # Maintainer: Axilleas Pipinellis <axilleas@archlinux.info>
 
 pkgname=kamaki
-pkgver=0.9
+pkgver=0.9.1
 pkgrel=1
 pkgdesc="A command-line tool for managing clouds"
 arch=(any)
 url="http://code.grnet.gr/projects/kamaki"
 license=('BSD')
 changelog=Changelog
-depends=('python2-objpool' 'python2-argparse')
+depends=('python2-argparse' 'python2-objpool>=0.2' 'python2-progress>=1.1')
 makedepends=('python2-distribute' 'python2-sphinx')
-optdepends=('python2-ansicolors: for color support' 
-            'python2-progress>=1.0.2: for progress bar support')
-source=("https://code.grnet.gr/attachments/download/2729/$pkgname-$pkgver.tar.gz")
+optdepends=('python2-ansicolors: for color support')
+source=("https://pypi.python.org/packages/source/k/$pkgname/$pkgname-$pkgver.tar.gz")
 
 package() {
 
@@ -32,6 +31,4 @@ package() {
     
 }
 
-# vim:set ts=2 sw=2 et:
-
-md5sums=('4c873a3cd0c0f06cff7e2bb70fcfb5be')
+md5sums=('52ea4d6a0d8f5167d4f188017405f300')
